@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Peminjam v3.2</title>
+
+  <!-- Apple-style favicon -->
+  <link rel="icon" type="image/png"
+        href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Font (System Default Apple Style) -->
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont,
+                   "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    }
+    h2.section-title {
+      color: #fff;
+      text-align: left;
+      width: 90%;
+      max-width: 1100px;
+      margin: 40px auto 10px;
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔵 Animated Gradient Background -->
+  <div id="background"></div>
+
+  <!-- 🌀 Loading Overlay -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Memuat Data...</p>
+  </div>
+
+  <!-- 🏠 Header -->
+  <header>
+    <h1>Database Peminjam</h1>
+    <p>Data langsung dari Google Spreadsheet</p>
+  </header>
+
+  <!-- 🔍 Dual Search Toolbar -->
+  <div class="toolbar">
+    <input type="text" id="searchBorrower" placeholder="Cari Nama Peminjam..." />
+    <button onclick="searchBorrower()">Cari Profil Peminjam</button>
+
+    <input type="text" id="searchGeneric" placeholder="Cari di Semua Kolom..." />
+    <button onclick="searchGeneric()">Cari di Tabel</button>
+
+    <button onclick="resetView()">Tampilkan Semua</button>
+  </div>
+
+  <!-- 📊 Profil Penanggung Jawab Section -->
+  <h2 class="section-title">📊 Profil Penanggung Jawab</h2>
+
+  <!-- 📊 Dashboard Cards -->
+  <div class="dashboard" id="dashboard">
+    <div class="card"><h3>Total Peminjam</h3><p id="totalPeminjam">-</p></div>
+    <div class="card"><h3>Jumlah Pinjaman</h3><p id="totalPinjaman">-</p></div>
+    <div class="card"><h3>Rata-rata Penghasilan</h3><p id="rataPenghasilan">-</p></div>
+    <div class="card"><h3>Tujuan Teratas</h3><p id="tujuanTeratas">-</p></div>
+  </div>
+
+  <!-- 📋 Table View -->
+  <div class="table-wrapper" id="tableWrapper">
+    <table id="dataTable"></table>
+  </div>
+  <div class="pagination" id="pagination"></div>
+
+  <!-- 👤 Profile View (hidden by default) -->
+  <div id="profileView" class="hidden"></div>
+
+  <!-- ⚙️ External JS -->
+  <script src="js/app_v3.2.js"></script>
+</body>
+</html>
